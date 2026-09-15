@@ -1,0 +1,116 @@
+{
+  "hardware": {
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "python_version": "3.13.15",
+    "torch_version": "2.11.0+cu128",
+    "cuda_available": true,
+    "gpu_name": "Tesla T4",
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz"
+  },
+  "hyperparameters": {
+    "model_name": "distilbert-base-uncased",
+    "glue_task": "mrpc",
+    "max_length": 128,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_target_modules": [
+      "q_lin",
+      "v_lin"
+    ],
+    "lora_dropout": 0.1,
+    "epochs": 4,
+    "batch_size": 16,
+    "lr_full_finetune": 2e-05,
+    "lr_lora": 0.001,
+    "weight_decay": 0.01,
+    "seed": 42
+  },
+  "results": {
+    "full": {
+      "mode": "full",
+      "trainable_params": 66955010,
+      "total_params": 66955010,
+      "trainable_pct": 100.0,
+      "learning_rate": 2e-05,
+      "epochs": 4,
+      "batch_size": 16,
+      "training_time_seconds": 176.9029483795166,
+      "training_time_minutes": 2.9483824729919434,
+      "final_val_accuracy": 0.8431372549019608,
+      "final_val_f1": 0.8869257950530035,
+      "best_val_accuracy": 0.8431372549019608,
+      "best_val_f1": 0.8869257950530035,
+      "weights_path": "/content/lora_project/results/weights/full_model.pt"
+    },
+    "lora": {
+      "mode": "lora",
+      "trainable_params": 739586,
+      "total_params": 67102466,
+      "trainable_pct": 1.10217409893699,
+      "learning_rate": 0.001,
+      "epochs": 4,
+      "batch_size": 16,
+      "training_time_seconds": 129.23325991630554,
+      "training_time_minutes": 2.153887665271759,
+      "final_val_accuracy": 0.8406862745098039,
+      "final_val_f1": 0.8900169204737732,
+      "best_val_accuracy": 0.8431372549019608,
+      "best_val_f1": 0.8900169204737732,
+      "weights_path": "/content/lora_project/results/weights/lora_model.pt"
+    }
+  },
+  "history": {
+    "full": {
+      "train_loss": [
+        0.5418252965030463,
+        0.3456869036283182,
+        0.1740114768481125,
+        0.10390984515619019
+      ],
+      "val_loss": [
+        0.4061843598118195,
+        0.33542498086507505,
+        0.3646369974773664,
+        0.4909601535361547
+      ],
+      "val_accuracy": [
+        0.8333333333333334,
+        0.8357843137254902,
+        0.8284313725490197,
+        0.8431372549019608
+      ],
+      "val_f1": [
+        0.8855218855218855,
+        0.8801431127012522,
+        0.8741007194244604,
+        0.8869257950530035
+      ]
+    },
+    "lora": {
+      "train_loss": [
+        0.5548654840044354,
+        0.40916040789173996,
+        0.3402745872816962,
+        0.28696217600094237
+      ],
+      "val_loss": [
+        0.43076502359830415,
+        0.36571011864222014,
+        0.5735257101746706,
+        0.41526153368445545
+      ],
+      "val_accuracy": [
+        0.8014705882352942,
+        0.8431372549019608,
+        0.7671568627450981,
+        0.8406862745098039
+      ],
+      "val_f1": [
+        0.8591304347826086,
+        0.8888888888888888,
+        0.8536209553158706,
+        0.8900169204737732
+      ]
+    }
+  }
+}
